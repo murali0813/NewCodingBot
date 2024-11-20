@@ -18,16 +18,6 @@ pipeline {
                }
            }
        }
-       stage('comment') {
-           steps {
-               script {
-                   // Log in to Docker Hub (use Jenkins credentials)
-                   withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
-                       sh 'comment'
-                   }
-               }
-           }
-       }
        stage('Deploy Docker Container') {
            steps {
                script {
