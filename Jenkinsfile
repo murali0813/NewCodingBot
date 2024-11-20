@@ -7,7 +7,7 @@ pipeline {
        stage('Checkout Code') {
            steps {
                // Clone the repository
-               git branch: 'main', url: 'https://github.com/your-repo/sample-node-app.git'
+               git branch: 'main', url: 'https://github.com/murali0813/NewCodingBot.git'
            }
        }
        stage('Build Docker Image') {
@@ -18,12 +18,12 @@ pipeline {
                }
            }
        }
-       stage('Push Docker Image to Registry') {
+       stage('comment') {
            steps {
                script {
                    // Log in to Docker Hub (use Jenkins credentials)
                    withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
-                       sh 'docker push $DOCKER_IMAGE'
+                       sh 'comment'
                    }
                }
            }
