@@ -14,7 +14,7 @@ pipeline {
            steps {
                script {
                    // Build the Docker image
-                   sh 'docker build -t $DOCKER_IMAGE .'
+                   sh 'sudo docker build -t $DOCKER_IMAGE .'
                }
            }
        }
@@ -33,12 +33,12 @@ pipeline {
                script {
                    // Stop any running container with the same name
                    sh '''
-                   docker stop sample-node-app || true
-                   docker rm sample-node-app || true
+                   sudo docker stop sample-node-app || true
+                   sudo docker rm sample-node-app || true
                    '''
                    // Run the new container
                    sh '''
-                   docker run -d --name sample-node-app -p 3000:3000 $DOCKER_IMAGE
+                   sudo docker run -d --name sample-node-app -p 3000:3000 $DOCKER_IMAGE
                    '''
                }
            }
